@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+### Food ordering application - Bachelor Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was initiated during my bachelor's studies. Even though I've finished my studies, I'm still working on and improving the app, adding new features to make it better.
 
-## Available Scripts
+Project is implemented using ReactJS (Hooks) library and Java Spring Boot framework (Hibernate, Spring Secuirty with JSON Web token, REST API) with some additional libraries (Bootstrap, AXIOS, Sweetalert, Redux and few more).
 
-In the project directory, you can run:
+### Project specification
 
-### `npm start`
+The main purpose of the application is to enable users to view restaurant menu, place food orders, then track the status of their orders, which can be updated by employees. The system consists of three user roles with specific capabilities:
+- ADMIN
+- EMPLOYEE
+- USER
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The application can also be accessed by unregistered users, who have the following abilities:
+- Register an account
+- Browse the menu, select a type of the meal, and view the complete offerings within that type
+- Specify quantities and then add items to the cart
+- Confirm the final order by inserting their address and phone number
+- After successfully placing the final order, users will receive a message containing a link to track the status of their order
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Registered users with the *USER* role can log into the system using their username and password. They have the following abilities:
+- Update their personal information
+- Order food similar to unregistered users, but without the need to enter their address and phone number since their data is already saved in the database.
+- Receive a 10% discount on every order
+- View their active orders (with *ORDERED* and *IN PREPARATION* status)
+- View the history of their orders (with *IN DELIVERY* status)
 
-### `npm test`
+Users with the *EMPLOYEE* role have the following abilities:
+- Review all incoming orders and change their status to *IN PREPARATION* or *IN DELIVERY*, depending on whether the orders are being prepared or in the process of delivery.
+- View the history of all orders.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users with the *ADMIN* role have the following abilities:
+- Create, delete (logically) and update meal types in the database (including uploading images)
+- Create, delete (logically) and update meals (including uploading images)
+- Logically delete users (change their isDeleted status, their data remains in the database)
+- View active final orders
+- Delete final orders and all their ordered items from the database
+- View the order history
+- Create, delete, and update employee data (users with the *EMPLOYEE* role)
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Application has fully responsive design for users who order the food.
